@@ -1,3 +1,4 @@
+import formatCurrency from "../../utils/formatCurrency";
 import { Card, Divider } from "./styles";
 import {
   Button,
@@ -7,14 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const Product = ({ product, toBuy, isDisabled }) => {
-  const formatCurrency = (number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(number);
-  };
-
+const Product = ({ product, toBuy = false, isDisabled, handleClick }) => {
   return (
     <Card>
       <CardContent>
@@ -77,6 +71,7 @@ const Product = ({ product, toBuy, isDisabled }) => {
             variant="contained"
             color={toBuy ? "success" : "error"}
             fullWidth
+            onClick={() => handleClick(product.id, toBuy)}
           >
             {toBuy ? "Adiconar" : "Remover"}
           </Button>

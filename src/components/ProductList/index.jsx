@@ -1,6 +1,6 @@
 import Product from "../Product";
 
-const ProductList = ({ products, toBuy, isDisabled }) => {
+const ProductList = ({ products, toBuy, isDisabled, handleClick }) => {
   return (
     <>
       {products.map((product, index) => (
@@ -9,6 +9,7 @@ const ProductList = ({ products, toBuy, isDisabled }) => {
           product={product}
           toBuy={toBuy}
           isDisabled={isDisabled}
+          handleClick={handleClick}
         />
       ))}
     </>

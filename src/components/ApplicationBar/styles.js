@@ -1,11 +1,11 @@
 import { styled } from "@mui/material/styles";
 import MuiStoreIcon from "@mui/icons-material/Store";
-import MuiTypography from "@mui/material/Typography";
+import MuiBox from "@mui/material/Box";
 
 export const StoreIcon = styled(MuiStoreIcon)(({ theme }) => ({
   marginRight: "16px",
 }));
 
-export const Typography = styled(MuiTypography)(({ theme }) => ({
+export const Box = styled(MuiBox)(({ theme }) => ({
   flexGrow: 1,
 }));

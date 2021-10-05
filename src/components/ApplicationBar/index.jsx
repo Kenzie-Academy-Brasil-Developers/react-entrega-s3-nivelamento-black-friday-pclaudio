@@ -1,7 +1,12 @@
-import { StoreIcon, Typography } from "./styles";
-import { AppBar, Toolbar } from "@mui/material";
+import { Home, ShoppingCart } from "@mui/icons-material";
+import { Box, StoreIcon } from "./styles";
+import { AppBar, Badge, IconButton, Toolbar, Typography } from "@mui/material";
 
-const ApplicationBar = () => {
+const ApplicationBar = ({ currentSale, toBuy, setToBuy }) => {
+  const handleToggleToBuy = () => {
+    setToBuy(!toBuy);
+  };
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -10,6 +15,18 @@ const ApplicationBar = () => {
         <Typography variant="h6" component="div">
           Eletro Kenzie
         </Typography>
+
+        <Box />
+
+        <IconButton size="large" color="inherit" onClick={handleToggleToBuy}>
+          {toBuy ? (
+            <Badge badgeContent={currentSale.length} color="error">
+              <ShoppingCart />
+            </Badge>
+          ) : (
+            <Home />
+          )}
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
